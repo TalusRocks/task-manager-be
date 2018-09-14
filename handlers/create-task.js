@@ -3,7 +3,7 @@ const docClient = new AWS.DynamoDB.DocumentClient()
 const uuid = require('uuid')
 
 function createTask(newTask){
-  if (!newTask || !newTask.id || !newTask.title) {
+  if (!newTask || !newTask.title) {
     throw new Error('Missing newTask information')
   }
 
