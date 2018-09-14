@@ -1,18 +1,18 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "OMNI-1234",
     "createdAt": "timestamp",
     "notes": [
       {
-        "id": 1,
+        "id": "1",
         "text": "a note",
         "status": "PROGRESS",
         "createdAt": "timestamp",
         "lastEditedAt": "timestamp-edit"
       },
       {
-        "id": 2,
+        "id": "2",
         "text": "a dif note",
         "status": "QUESTION",
         "createdAt": "timestamp",
@@ -21,19 +21,19 @@
     ]
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "OMNI-2222",
     "createdAt": "timestamp",
     "notes": [
       {
-        "id": 1,
+        "id": "1",
         "text": "some text about task",
         "status": "PROGRESS",
         "createdAt": "timestamp",
         "lastEditedAt": "timestamp-edit"
       },
       {
-        "id": 2,
+        "id": "2",
         "text": "a dif note",
         "status": "BLOCKED",
         "createdAt": "timestamp",
