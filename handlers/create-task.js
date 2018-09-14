@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient()
+const uuid = require('uuid')
 
 function createTask(newTask){
   if (!newTask || !newTask.id || !newTask.title) {
@@ -9,7 +10,7 @@ function createTask(newTask){
   return docClient.put({
     TableName: 'tasks',
     Item: {
-      taskId: '123',
+      taskId: uuid(),
       title: 'This is headed to Dynamo!'
     }
   }).promise()
