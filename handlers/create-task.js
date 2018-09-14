@@ -1,12 +1,12 @@
-function createTask(task){
-  for (let property in task) {
-    if (task.hasOwnProperty(property)) {
-      console.log(task.hasOwnProperty(property))
+function createTask(newTask){
+  for (let property in newTask) {
+    if (newTask.hasOwnProperty(property)) {
+      console.log(newTask.hasOwnProperty(property))
     }
   }
 
-  if (!task || !task.id || !task.title || !task.createdAt) {
-    throw new Error('Missing task information')
+  if (!newTask || !newTask.id || !newTask.title || !newTask.createdAt) {
+    throw new Error('Missing newTask information')
   }
 
   return {}
