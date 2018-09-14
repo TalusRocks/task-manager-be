@@ -1,15 +1,26 @@
-function createTask(newTask){
-  for (let property in newTask) {
-    if (newTask.hasOwnProperty(property)) {
-      console.log(newTask.hasOwnProperty(property))
-    }
-  }
+const AWS = require('aws-sdk')
+const docClient = new AWS.DynamoDB.DocumentClient()
 
-  if (!newTask || !newTask.id || !newTask.title || !newTask.createdAt) {
+function createTask(newTask){
+  if (!newTask || !newTask.id || !newTask.title) {
     throw new Error('Missing newTask information')
   }
 
-  return {}
+  return docClient.put({
+    TableName: 'tasks',
+    Item: {
+      taskId: '123',
+      title: 'This is headed to Dynamo!'
+    }
+  }).promise()
+    .then((res) => {
+      console.log('Task saved!', res)
+      return res
+    })
+    .catch((error) => {
+      console.log('Task not saved', error);
+      throw error
+    })
 }
 
 module.exports = createTask
