@@ -11,7 +11,7 @@ function createTask(newTask){
     TableName: 'tasks',
     Item: {
       taskId: uuid(),
-      title: 'This is headed to Dynamo!'
+      title: newTask.title
     }
   }).promise()
     .then((res) => {
