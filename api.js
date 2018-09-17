@@ -1,10 +1,11 @@
 const Api = require('claudia-api-builder')
 const api = new Api()
-const getTasks = require('./handlers/get-tasks')
-const createTask = require('./handlers/create-task')
-const editTask = require('./handlers/edit-task')
-const deleteTask = require('./handlers/delete-task')
+const getTasks = require('./handlers/tasks/get-tasks')
+const createTask = require('./handlers/tasks/create-task')
+const editTask = require('./handlers/tasks/edit-task')
+const deleteTask = require('./handlers/tasks/delete-task')
 
+// TASKS
 api.get('/', () => 'Welcome to the Task Manager API')
 
 api.get('/tasks', () => {
