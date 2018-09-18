@@ -4,6 +4,7 @@ const getTasks = require('./handlers/tasks/get-tasks')
 const createTask = require('./handlers/tasks/create-task')
 const editTask = require('./handlers/tasks/edit-task')
 const deleteTask = require('./handlers/tasks/delete-task')
+const createNote = require('./handlers/notes/create-note')
 
 // TASKS
 api.get('/', () => 'Welcome to the Task Manager API')
@@ -34,6 +35,14 @@ api.put('/tasks/{id}', (request) => {
 api.delete('/tasks/{id}', (request) => {
   return deleteTask(request.pathParams.id)
 }, {
+  error: 400
+})
+
+//notes
+api.put('/tasks/{id}/notes', (request) => {
+  return createNote(request.pathParams.id, request.body)
+}, {
+  success: 201,
   error: 400
 })
 
