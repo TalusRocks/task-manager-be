@@ -7,17 +7,20 @@ function createTask(newTask){
     throw new Error('Missing newTask information')
   }
 
+  let newItem = {
+    taskId: uuid(),
+    title: newTask.title,
+    notes: []
+  }
+
   return docClient.put({
     TableName: 'tasks',
-    Item: {
-      taskId: uuid(),
-      title: newTask.title,
-      notes: []
-    }
+    Item: newItem
   }).promise()
     .then((res) => {
       console.log('Task saved!', res)
-      return res
+      console.log('newItem:', newItem);
+      return newItem
     })
     .catch((error) => {
       console.log('Task not saved', error);
