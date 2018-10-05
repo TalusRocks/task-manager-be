@@ -39,7 +39,7 @@ api.delete('/tasks/{id}', (request) => {
 })
 
 //notes
-api.put('/tasks/{id}/notes', (request) => {
+api.put('/tasks/{id}', (request) => {
   return createNote(request.pathParams.id, request.body)
 }, {
   success: 201,

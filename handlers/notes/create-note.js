@@ -3,21 +3,20 @@ const docClient = new AWS.DynamoDB.DocumentClient()
 const uuid = require('uuid')
 
 function createNote(taskId, newNote){
-  if (!newNote || !newNote.text || !newNote.status) {
+  if (!newNote) {
     throw new Error('Missing newNote information')
   }
-
   return docClient.update({
     TableName: 'tasks',
     Key: {
-      taskId: taskId
+      'taskId': taskId
     },
-    UpdateExpression: 'SET #notes = list_append(#notes, :note)',
+    UpdateExpression: 'SET #notes = list_append(#notes, :notes)',
     ExpressionAttributeNames: {
       '#notes': 'notes'
     },
     ExpressionAttributeValues: {
-      ':note': [
+      ':notes': [
         {
           'noteId': uuid(),
           'text': newNote.text,
