@@ -3,7 +3,7 @@ const docClient = new AWS.DynamoDB.DocumentClient()
 
 function editTask(taskId, updatedTask){
   if (!taskId || !updatedTask) {
-    throw new Error('Insufficient infromation to update task')
+    throw new Error('Insufficient information to update task')
   }
 
   return docClient.update({
@@ -11,9 +11,10 @@ function editTask(taskId, updatedTask){
     Key: {
       taskId: taskId
     },
-    UpdateExpression: 'set title = :t',
+    UpdateExpression: 'SET title = :t, notes = :n',
     ExpressionAttributeValues: {
-      ':t': updatedTask.title
+      ':t': updatedTask.title,
+      ':n': updatedTask.notes
     },
     ReturnValues: 'ALL_NEW'
   }).promise()
